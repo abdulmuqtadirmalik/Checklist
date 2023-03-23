@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedItems = Set<String>(["Milk", "Cheese"])
+
+        let items = [
+            "Milk",
+            "Sugar",
+            "Bread",
+            "Cheese"
+        ]
+    
     var body: some View {
         Text("Hello World")
     }
