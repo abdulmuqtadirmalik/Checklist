@@ -18,7 +18,34 @@ struct ContentView: View {
         ]
     
     var body: some View {
-        
+        VStack(alignment: .leading){
+            Text("Groceries").font(.largeTitle).padding(.leading, 16.0)
+            
+            Spacer()
+            List {
+                        Section(header: Text("")) {
+                            ForEach(items, id: \.self) { item in
+                                Button(action: {
+                                    if selectedItems.contains(item) {
+                                        selectedItems.remove(item)
+                                    } else {
+                                        selectedItems.insert(item)
+                                    }
+                                })
+                                {
+                                    HStack {
+                                        Text(item).foregroundColor(.black)
+                                        Spacer()
+                                        if selectedItems.contains(item) {
+                                            Image(systemName: "checkmark").tint(.black)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+            
+        }
     }
 }
 
